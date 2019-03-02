@@ -9,12 +9,13 @@ class FrontPage extends React.Component {
                     <h1>Welcome to Perfect-Fit</h1>
                 </div>
                 <div className="Link-bar">
+                    <a href="/">Home</a>
                     <a href="/food">Calorie Counter</a>
                     <a href="/sports">Sports</a>
                 </div>
                 <div className="Content side">
                     <p>
-                        About us
+                        Track your calories and workouts!
                     </p>
                 </div>
                 <div className="Content middle">

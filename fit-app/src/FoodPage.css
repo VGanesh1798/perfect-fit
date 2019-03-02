@@ -1,3 +1,14 @@
 .FoodPage {
-    background-color: red;
+    text-align: center;
+}
+
+.Calorie-header {
+    background-image: linear-gradient(to right, #0088ff, #551188);
+    padding: 20px;
+    font-size: 30px;
+}
+
+.Calorie-calc {
+    background-color: #ccccff;
+    
 }

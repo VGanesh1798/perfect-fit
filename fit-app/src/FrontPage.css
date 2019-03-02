@@ -28,7 +28,6 @@
 
 .Content {
     float: left;
-    background-color: #ccccff;
     min-height: 60vh;
     display: flex;
     flex-direction: column;
@@ -37,10 +36,13 @@
 }
 
 .Content.side {
+    background-color: #ccccff;
     width: 25%;
 }
 
 .Content.middle {
+    background-color: black;
+    color: white;
     width: 50%;
 }
 
