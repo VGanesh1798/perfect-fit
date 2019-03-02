@@ -18,6 +18,13 @@ app.post('/api/world', (req, res) => {
     );
 });
 
+app.post('/api/login', (req, res) => {
+  console.log(req.body);
+  res.send(
+    `Loggin in.`,
+  );
+});
+
 app.post('/api/food', (req, res) => {
   res.send(
     `You just committed ${req.body.post} calories to the system.`

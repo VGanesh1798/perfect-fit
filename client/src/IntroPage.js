@@ -18,10 +18,17 @@ class IntroPage extends React.Component {
         this.setState({ [event.target.name]: event.target.value })
     }
 
-    isUser() {
-        if(firebase.database().ref('users').on(this.state.username) && firebase.database().ref('users'.on(this.state.password))) {
-            window.location.replace("Google.com");            
-        } 
+    handleSubmit = async e => {
+        e.preventDefault();
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ post: this.state.post }),
+        });
+        const body = await response.text();
+        this.setState({ responseToPost: body });
     }
 
     render() {
@@ -31,7 +38,7 @@ class IntroPage extends React.Component {
                     <h1>Welcome to Perfect-Fit</h1>
                 </div>
                 <div className="Login">
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                         Username: <input type='text' name="username" placeholder="Username" value ={this.state.username} onChange={this.handleChange}/> <br/>
                         Password: <input type='password' name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/> <br/>
                         <button onClick = {() => this.isUser()}>Login</button>

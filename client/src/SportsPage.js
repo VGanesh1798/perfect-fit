@@ -13,12 +13,12 @@ import pool from './images/pool.png';
 class SportsPage extends Component {
   handleConfirmClick = () => {
     alert("you confirmed");
-    this.props.history.push("/");
+    this.props.history.push("/home");
   };
 
   handleCancelClick = () => {
     alert("you cancled");
-    this.props.history.push("/");
+    this.props.history.push("/home");
   };
 
   render() {
