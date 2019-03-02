@@ -33,6 +33,7 @@ class CreateAccount extends React.Component {
       password: "",
       email: "",
     });
+    this.props.history.push("/home");
   }
 
   render() {
