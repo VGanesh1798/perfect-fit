@@ -1,13 +1,11 @@
-.IntroPage {
+.create_page {
   text-align: center;
 }
 
-#login-button {
-  margin-left: 50px;
-}
-
-.create_button {
-      background: #4E9CAF;
+.create-button {
+    /*width: 115px;
+    height: 25px;*/
+    background: #4E9CAF;
     /*padding: 10px;*/
     border-radius: 5px;
     color: white;
