@@ -61,9 +61,17 @@ class FoodPage extends React.Component {
                 </div>
                 <div className="Content middle">
                     <Calc />
+                    <p>Please enter an amount of calories you have consumed. For
+                        convenience, some food items are listed on the right to quick-add to the list.
+                        When finished, click send to have your goals tracked.
+                    </p>
                 </div>
                 <div className="Content side">
-                        Milk:
+                    <p>
+                        Quick add
+                    </p>
+                    <button>1c Milk</button>
+                    <button>1c Chicken</button>
                 </div>
                 <div className="Footer-bar">
                     <a href="/contact"><b>Contact Us</b></a>

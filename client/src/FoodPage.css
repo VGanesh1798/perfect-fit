@@ -15,7 +15,7 @@
     width: 250px;
     height: 60px;
     top: 40%;
-    left: 25%;
+    left: 26%;
     font-size: 30px;
 }
 
@@ -24,7 +24,7 @@
     width: 70px;
     height: 50px;
     top: 41.25%;
-    left: 42%;
+    left: 43%;
     border: none;
     background-color: green;
     font-size: 25px;
@@ -38,8 +38,8 @@
 
 .Calorie-table {
     display: table-column;
-    position: absolute;
-    width: 45px;
+    position: fixed;
+    width: 200px;
     height: 60px;
     overflow: auto;
     top: 41.25%;
