@@ -43,9 +43,9 @@ class CreateAccount extends React.Component {
         </div>
         <div className='create-account'>
           <form onSubmit={this.handleSubmit}>
-            Username: <input type='text' name="username" placeholder="Username" value = {this.state.username} onChange = {this.handleChange}/> <br/>
-            Password: <input type='password' name="password" placeholder="Password" value = {this.state.password} onChange = {this.handleChange}/> <br/>
-            Email: <input type='text' name="email" placeholder="Email" value = {this.state.email} onChange = {this.handleChange}/> <br/>
+            Username: <input type='text' name="username" placeholder="Username" value = {this.state.username} onChange = {this.handleChange} required/> <br/>
+            Password: <input type='password' name="password" placeholder="Password" value = {this.state.password} onChange = {this.handleChange} required/> <br/>
+            Email: <input type='text' name="email" placeholder="Email" value = {this.state.email} onChange = {this.handleChange} required/> <br/>
             <button>Create Account</button>
           </form>
         </div>
