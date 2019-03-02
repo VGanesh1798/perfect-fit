@@ -1,10 +1,38 @@
 import React from 'react';
 import './FrontPage.css';
 import './CreateAccount.css';
+import firebase from './firebase.js';
 
 class CreateAccount extends React.Component {
-  handleCreate() {
-    window.location.assign('./home');
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: null,
+      password: null,
+      email: null,
+    }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState ({ [event.target.name]: event.target.value })
+  }
+  
+  handleSubmit(e) {
+    e.preventDefault();
+    const itemsRef = firebase.database().ref('users');
+    const item = {
+      user: this.state.username,
+      password: this.state.password,
+      email: this.state.email,
+    }  
+    itemsRef.push(item);
+    this.setState({
+      username: "",
+      password: "",
+      email: "",
+    });
   }
 
   render() {
@@ -14,14 +42,16 @@ class CreateAccount extends React.Component {
           <h1>Welcome to Perfect-Fit</h1>
         </div>
         <div className='create-account'>
-          Username: <input type='text'/> <br/>
-          Password: <input type='password'/> <br/>
-          Email: <input type='text'/> <br/>
-          <a href='./home' class='create-button'>Create Account</a>
+          <form onSubmit={this.handleSubmit}>
+            Username: <input type='text' name="username" placeholder="Username" value = {this.state.username} onChange = {this.handleChange}/> <br/>
+            Password: <input type='password' name="password" placeholder="Password" value = {this.state.password} onChange = {this.handleChange}/> <br/>
+            Email: <input type='text' name="email" placeholder="Email" value = {this.state.email} onChange = {this.handleChange}/> <br/>
+            <button>Create Account</button>
+          </form>
         </div>
         <a href='./'>Back to Login</a>
       </div>
-    )
+    );
   }
 }
 

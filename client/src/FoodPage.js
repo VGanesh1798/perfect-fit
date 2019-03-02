@@ -1,45 +1,7 @@
 import React from 'react';
 import './FoodPage.css';
 import './FrontPage.css';
-
-class Calc extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            food: null,
-            calorie: null,
-            meals: Array(0).fill(0),
-            sum: 0,
-        }
-    }
-
-    handleChange = event => {
-        this.setState({calorie: event.target.value});
-    }
-
-    addmeal() {
-        this.state.meals.push(parseFloat(this.state.calorie));
-        this.setState({calorie: this.state.calorie, meals:this.state.meals, sum: this.state.sum + this.state.meals[this.state.meals.length-1]});
-    }
-
-    render() {
-        return (
-            <div className="Calorie-calc">
-                <form>
-                    <input 
-                        type='number'
-                        value = {this.state.calorie}
-                        onChange = {this.handleChange}
-                    />
-                </form>
-                <button onClick={() => this.addmeal()}>Add</button>
-                <div className="Calorie-table">
-                    {this.state.sum}
-                </div>
-            </div>
-        )
-    }
-}
+import Calc from './Calc.js'
 
 class FoodPage extends React.Component {
     render() {
@@ -70,8 +32,8 @@ class FoodPage extends React.Component {
                     <p>
                         Quick add
                     </p>
-                    <button>1c Milk</button>
-                    <button>1c Chicken</button>
+                    <button>1c 2% Milk (124 calories)</button>
+                    <button>1c Chicken (335 calories)</button>
                 </div>
                 <div className="Footer-bar">
                     <a href="/contact"><b>Contact Us</b></a>

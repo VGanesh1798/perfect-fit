@@ -1,5 +1,7 @@
 import React from 'react';
 import './FrontPage.css';
+import athletes from './athletes.jpg';
+import soccer from './soccer.png'
 
 class FrontPage extends React.Component {
     state = {
@@ -7,18 +9,18 @@ class FrontPage extends React.Component {
         post: '',
         responseToPost: '',
       };
-      componentDidMount() {
+    componentDidMount() {
         this.callApi()
           .then(res => this.setState({ response: res.express }))
           .catch(err => console.log(err));
-      }
-      callApi = async () => {
+    }
+    callApi = async () => {
         const response = await fetch('/api/hello');
         const body = await response.json();
         if (response.status !== 200) throw Error(body.message);
         return body;
-      };
-      handleSubmit = async e => {
+    };
+    handleSubmit = async e => {
         e.preventDefault();
         const response = await fetch('/api/world', {
           method: 'POST',
@@ -29,7 +31,7 @@ class FrontPage extends React.Component {
         });
         const body = await response.text();
         this.setState({ responseToPost: body });
-      };
+    };
 
     render() {
         return (
@@ -48,6 +50,7 @@ class FrontPage extends React.Component {
                     </p>
                 </div>
                 <div className="Content middle">
+                    <img src={soccer} className="soccer-ball" alt=""></img>
                     <p>
                         Welcome to the Perfect-Fit website. This website was designed
                         for the Pickhacks 2019 competition. It features a calorie counter 
@@ -71,7 +74,7 @@ class FrontPage extends React.Component {
                 </div>
                 <div className="Footer-bar">
                     <a href="/contact"><b>Contact us</b></a>
-                    <p>Welcome, user</p>
+                    <p>You are logged in as user</p>
                 </div>
             </div>
         )
