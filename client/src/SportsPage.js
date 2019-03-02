@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import './SportsPage.css';
+import football from './football.jpg';
 
 class SportsPage extends Component {
   handleCancelClick = () => {
@@ -22,7 +23,7 @@ class SportsPage extends Component {
       <body>
         <div className="row">
           <div className="column">
-            <button>1</button>
+            <button><img src={football} alt="Football"/></button>
             <button>3</button>
             <button>5</button>
             <button>7</button>

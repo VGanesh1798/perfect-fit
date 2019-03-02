@@ -19,6 +19,7 @@
     font-size: 30px;
     padding: 14px 16px;
     text-decoration: none;
+    transition-duration: 0.4s;
 }
 
 .Link-bar a:hover {
@@ -63,9 +64,18 @@
     font-size: 15px;
     padding: 14px 16px;
     text-decoration: none;
+    transition-duration: 0.4s;
 }
 
 .Footer-bar a:hover {
     color: black;
     background-color: gray;
+}
+
+.Footer-bar p {
+    float:left;
+    color:white;
+    font-size: 10px;
+    padding: 14px 16px;
+    transition-duration: 1.0s
 }
