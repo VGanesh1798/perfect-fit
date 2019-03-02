@@ -4,7 +4,7 @@
   display: block; 
   border: none;
   font-size: 20pt;
-  width: 400px;
+  width: 440px;
   height: 40px;
 }
 
@@ -19,10 +19,10 @@
 .column button {
   background-color: black;
   color: orange;
-  display: block; 
+  display: block;
   border: none;
-  width: 200px;
-  height: 200px;
+  padding: 10px;
+  padding-bottom: 5px;
 }
 
 .column button:hover {

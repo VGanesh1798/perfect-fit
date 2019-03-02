@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import './SportsPage.css';
-import football from './football.jpg';
+import basketball from './images/basketball.png';
+import football from './images/football.png';
+import baseball from './images/baseball.png';
+import bowling from './images/bowling.png';
+import soccer from './images/soccer.png';
+import tennis from './images/tennis.png';
+import golf from './images/golf.png';
+import pool from './images/pool.png';
 
 class SportsPage extends Component {
-  handleCancelClick = () => {
-    alert("you cancled");
-    this.props.history.push("/");
-  };
-  
   handleConfirmClick = () => {
     alert("you confirmed");
+    this.props.history.push("/");
+  };
+
+  handleCancelClick = () => {
+    alert("you cancled");
     this.props.history.push("/");
   };
 
@@ -23,16 +30,16 @@ class SportsPage extends Component {
       <body>
         <div className="row">
           <div className="column">
-            <button><img src={football} alt="Football"/></button>
-            <button>3</button>
-            <button>5</button>
-            <button>7</button>
+            <button><img src={football} alt="Football" width="200" height="200" /></button>
+            <button><img src={soccer} alt="Soccer" width="200" height="200" /></button>
+            <button><img src={tennis} alt="Tennis" width="200" height="200" /></button>
+            <button><img src={bowling} alt="Bowling" width="200" height="200" /></button>
           </div>
           <div className="column">
-            <button>2</button>
-            <button>4</button>
-            <button>6</button>
-            <button>8</button>
+            <button><img src={basketball} alt="Basketball" width="200" height="200" /></button>
+            <button><img src={baseball} alt="Baseball" width="200" height="200" /></button>
+            <button><img src={golf} alt="Golf" width="200" height="200" /></button>
+            <button><img src={pool} alt="Pool" width="200" height="200" /></button>
           </div>
         </div>
       </body>
