@@ -1,6 +1,5 @@
 import React from 'react';
 import './FrontPage.css';
-import Link from 'react-router-dom';
 
 class FrontPage extends React.Component {
     render() {
@@ -11,7 +10,7 @@ class FrontPage extends React.Component {
                 </div>
                 <div className="Link-bar">
                     <a href="/food">Calorie Counter</a>
-                    <a href="#">Sports</a>
+                    <a href="/sports">Sports</a>
                 </div>
                 <div className="Content side">
                     <p>

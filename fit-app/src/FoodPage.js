@@ -4,8 +4,10 @@ import './FoodPage.css';
 class FoodPage extends React.Component {
     render() {
         return (
-            <div id="Yaya">
-                <h1>Hi</h1>
+            <div className="FoodPage">
+                <div className="Calorie-header">
+                    <h1>Calorie Counter</h1>
+                </div>
             </div>
         )
     }
