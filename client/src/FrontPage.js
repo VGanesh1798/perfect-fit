@@ -25,7 +25,7 @@ class FrontPage extends React.Component {
         return body;
     };
     setSession = async () => {
-        const response = await fetch('/api/hello');
+        const response = await fetch('/api/session');
         const body = await response.json();
         if (response.status !== 200) throw Error(body.message);
         return body;
@@ -85,7 +85,7 @@ class FrontPage extends React.Component {
                 </div>
                 <div className="Footer-bar">
                     <a href="/contact"><b>Contact us</b></a>
-                    <p>You are logged in as</p>
+                    <p>{this.state.session}</p>
                 </div>
             </div>
         )
