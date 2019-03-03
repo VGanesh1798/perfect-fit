@@ -4,6 +4,8 @@ import './FrontPage.css';
 import { Redirect } from 'react-router-dom';
 import firebase from './firebase.js';
 
+let curr_name;
+
 class IntroPage extends React.Component {
     constructor(props) {
         super(props);
@@ -23,6 +25,7 @@ class IntroPage extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        curr_name = this.state.username;
         let found = false;
         var usersRef = firebase.database().ref('users');
         var self = this;

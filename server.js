@@ -14,15 +14,8 @@ app.get('/api/hello', (req, res) => {
 app.post('/api/world', (req, res) => {
     console.log(req.body);
     res.send(
-      `I received your POST request. This is what you sent me: ${req.body.post}`,
+      `Thanks for chatting! I received: ${req.body.post}`,
     );
-});
-
-app.post('/api/login', (req, res) => {
-  console.log(req.body);
-  res.send(
-    `Loggin in.`,
-  );
 });
 
 app.post('/api/food', (req, res) => {

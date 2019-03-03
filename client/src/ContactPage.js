@@ -13,6 +13,7 @@ class ContactPage extends React.Component {
                     <a href="/home">Home</a>
                     <a href="/food">Calorie Counter</a>
                     <a href="/sports">Sports</a>
+                    <a href="/workout">Workouts</a>
                 </div>
                 <div className="Contact-info">
                     <p>
