@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser'); 
+const path = require('path');
 var session = '';
 
 const app = express();
@@ -29,5 +30,12 @@ app.get('/api/session', (req, res) => {
   res.send({express: 'Welcome, ' + session});
 });
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
