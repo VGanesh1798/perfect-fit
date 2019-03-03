@@ -27,6 +27,12 @@
     background-color: gray;
 }
 
+.Link-bar b {
+    float: right;
+    font-size: 1px;
+    color: white;
+}
+
 .Content {
     float: left;
     min-height: 60vh;

@@ -41,7 +41,8 @@ class FoodPage extends React.Component {
                 </div>
                 <div className="Content side">
                     <p>
-                        Your caloric goals:<br/>
+                        Today's caloric goal:<br/>
+                        3000 Calories<br/>
 
                     </p>
                 </div>

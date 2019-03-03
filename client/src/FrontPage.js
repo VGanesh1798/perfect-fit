@@ -53,6 +53,7 @@ class FrontPage extends React.Component {
                     <a href="/food">Calorie Counter</a>
                     <a href="/sports">Sports</a>
                     <a href="/workout">Workouts</a>
+                    <b><a className="tiny-bold" href="/">Logout</a></b>
                 </div>
                 <div className="Content side">
                     <p>

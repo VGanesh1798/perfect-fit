@@ -1,3 +1,7 @@
+.SportsPage {
+  text-align:center;
+}
+
 .header button {
   background-color: black;
   color: orange;
@@ -8,6 +12,11 @@
   height: 40px;
 }
 
+.Sports-Content.side {
+  float: left;
+  background-color: black;
+}
+
 .header button:hover {
   background-color: orange;
 }
@@ -15,6 +24,21 @@
 .row div {
   float:left;
 }
+
+.Sporty {
+  font-size: 30px;
+  color: orange;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 14px 16px;
+  transition-duration: 0.4s;
+}
+
+.Sporty:hover {
+  background-color: purple;
+}
+
 
 .column button {
   background-color: black;
