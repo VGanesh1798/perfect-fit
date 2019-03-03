@@ -12,7 +12,6 @@ class IntroPage extends React.Component {
         this.state = {
             username: null,
             password: null,
-            email: null,
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,7 +31,6 @@ class IntroPage extends React.Component {
         var item = {
             user: this.state.username,
             password: this.state.password,
-            email: this.state.email,
         }
         usersRef.on('value', function(snapshot) {
             snapshot.forEach(function(childSnapshot) {
@@ -59,7 +57,6 @@ class IntroPage extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         Username: <input type='text' name="username" placeholder="Username" value ={this.state.username} onChange={this.handleChange} required/> <br/>
                         Password: <input type='password' name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required/> <br/>
-                        Email: <input type='text' name='email' placeholder="Email" value = {this.state.email} onChange={this.handleChange} required/> <br/>
                         <button>Login</button>
                     </form>
                 </div>

@@ -22,19 +22,31 @@ class CreateAccount extends React.Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    const usersRef = firebase.database().ref('users');
-    const item = {
+    let found = false;
+    var usersRef = firebase.database().ref('users');
+    var item = {
       user: this.state.username,
       password: this.state.password,
       email: this.state.email,
     }
-    usersRef.push(item);
-    this.setState({
-      username: "",
-      password: "",
-      email: "",
-    });
-    this.props.history.push("/home");
+    usersRef.on('value', function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        if(item.user === childData.user || item.email === childData.email) {
+          console.log("Looks like you already exist!")
+          found = true;
+        }
+      })
+    })
+    if(found !== true) {
+      usersRef.push(item);
+      this.setState({
+        username: "",
+        password: "",
+        email: "",
+      });
+      this.props.history.push("/home");
+    }
   }
 
   componentDidMount() {
