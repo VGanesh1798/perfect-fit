@@ -3,6 +3,24 @@ import './ContactPage.css';
 import './FrontPage.css';
 
 class ContactPage extends React.Component {
+    state = {
+        session: '',
+    }
+
+    componentDidMount() {
+        this.setSession()
+            .then(res => this.setState({session: res.express}))
+            .catch(err => console.log(err));
+    }
+    
+    setSession = async () => {
+        const response = await fetch('/api/session');
+        const body = await response.json();
+        if (response.status !== 200) throw Error(body.message);
+        return body;
+    };
+
+
     render() {
         return (
             <div className="ContactPage">
@@ -27,7 +45,7 @@ class ContactPage extends React.Component {
                 </div>
                 <div className="Footer-bar">
                     <a href="/contact"><b>Contact us</b></a>
-                    <p>Welcome, user</p>
+                    <p>{this.state.session}</p>
                 </div>
             </div>
         )

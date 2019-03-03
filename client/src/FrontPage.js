@@ -1,7 +1,6 @@
 import React from 'react';
 import './FrontPage.css';
 import soccer from './soccer.png'
-import IntroPage from './IntroPage.js';
 
 class FrontPage extends React.Component {
     state = {

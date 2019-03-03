@@ -23,6 +23,17 @@ class IntroPage extends React.Component {
     handleSubmit = async e => {
         e.preventDefault();
 
+        const response = fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({id: this.state.username})
+
+        }).then(function(response) {
+            return response.json();
+        })
+
         let found = false;
         var usersRef = firebase.database().ref('users');
         var self = this;

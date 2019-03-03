@@ -9,7 +9,10 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "firebase-admin": "^7.0.0"
+    "express-session": "^1.15.6",
+    "firebase": "^5.8.5",
+    "firebase-admin": "^7.0.0",
+    "nodemon": "^1.18.10"
   },
   "devDependencies": {
     "concurrently": "^4.0.1"

@@ -1,9 +1,9 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); 
+var session = '';
 
 const app = express();
 const port = process.env.PORT || 5000;
-var session_name = "Max";
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -20,11 +20,13 @@ app.post('/api/world', (req, res) => {
 });
 
 app.post('/api/login', (req, res) => {
-    console.log(`Logging in as ${req.body.post}`);
+    console.log(`Logging in as ${req.body.id}`);
+    session = req.body.id;
 });
 
 app.get('/api/session', (req, res) => {
-  res.send('Welcome Max!');
+  console.log(session);
+  res.send({express: 'Welcome, ' + session});
 });
 
 
