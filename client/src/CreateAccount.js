@@ -45,32 +45,8 @@ class CreateAccount extends React.Component {
         password: "",
         email: "",
       });
-      this.props.history.push("/home");
+      this.props.history.push("/");
     }
-  }
-
-  componentDidMount() {
-    const usersRef = firebase.database().ref('users');
-    usersRef.child('user').on('value', function(groupSnap) {
-      groupSnap.forEach(function(snap) {
-        console.log(snap.user() + ' has ' + snap.val().password);
-      });
-    });
-    usersRef.on('value', (snapshot) => {
-      let users = snapshot.val;
-      let newState = [];
-      for(let item in users) {
-        newState.push({ 
-          id: item,
-          username: users[item].username,
-          password: users[item].password,
-          email: users[item].email,
-        });
-      this.setState({
-        users: newState
-      });
-      }
-    });
   }
 
   render() {

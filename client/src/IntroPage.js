@@ -4,14 +4,13 @@ import './FrontPage.css';
 import { Redirect } from 'react-router-dom';
 import firebase from './firebase.js';
 
-let curr_name;
-
 class IntroPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             username: null,
             password: null,
+            curr_name: null,
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,9 +21,9 @@ class IntroPage extends React.Component {
         this.setState({ [event.target.name]: event.target.value })
     }
 
-    handleSubmit(e) {
+    handleSubmit = async e => {
         e.preventDefault();
-        curr_name = this.state.username;
+
         let found = false;
         var usersRef = firebase.database().ref('users');
         var self = this;

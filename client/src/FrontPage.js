@@ -1,20 +1,30 @@
 import React from 'react';
 import './FrontPage.css';
-import athletes from './athletes.jpg';
 import soccer from './soccer.png'
+import IntroPage from './IntroPage.js';
 
 class FrontPage extends React.Component {
     state = {
         response: '',
         post: '',
         responseToPost: '',
+        session: '',
       };
     componentDidMount() {
         this.callApi()
           .then(res => this.setState({ response: res.express }))
           .catch(err => console.log(err));
+        this.setSession()
+            .then(res => this.setState({session: res.express}))
+            .catch(err => console.log(err));
     }
     callApi = async () => {
+        const response = await fetch('/api/hello');
+        const body = await response.json();
+        if (response.status !== 200) throw Error(body.message);
+        return body;
+    };
+    setSession = async () => {
         const response = await fetch('/api/hello');
         const body = await response.json();
         if (response.status !== 200) throw Error(body.message);
@@ -75,7 +85,7 @@ class FrontPage extends React.Component {
                 </div>
                 <div className="Footer-bar">
                     <a href="/contact"><b>Contact us</b></a>
-                    <p>You are logged in as user</p>
+                    <p>You are logged in as</p>
                 </div>
             </div>
         )

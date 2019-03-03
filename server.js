@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 5000;
+var session_name = null;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -18,10 +19,13 @@ app.post('/api/world', (req, res) => {
     );
 });
 
-app.post('/api/food', (req, res) => {
-  res.send(
-    `You just committed ${req.body.post} calories to the system.`
-  );
+app.post('/api/login', (req, res) => {
+    console.log(`Logging in as ${req.body.post}`);
 });
+
+app.get('/api/session', (req, res) => {
+  res.send({ express: 'Welcome'});
+});
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
