@@ -84,7 +84,7 @@ window.onload=function(){
              num+=137;  
          }
 		 ob6.onclick = function(){
-             num+=750;  
+             num+=150;  
          }
 		 oe1.onclick = function(){
              window.alert(num);
