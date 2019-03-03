@@ -1,6 +1,6 @@
 import React from 'react';
-import firebase from './firebase.js';
 import { Redirect } from 'react-router-dom';
+import firebase from './firebase.js';
 
 import './classNames.css';
 
@@ -10,8 +10,11 @@ class IntroPage extends React.Component {
         this.state = {
             username: null,
             password: null,
+            curr_name: null,
         }
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
     handleChange(event) {
@@ -20,15 +23,29 @@ class IntroPage extends React.Component {
 
     handleSubmit = async e => {
         e.preventDefault();
-        const response = await fetch('/api/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ post: this.state.post })
+
+        let found = false;
+        var usersRef = firebase.database().ref('users');
+        var self = this;
+        var item = {
+            user: this.state.username,
+            password: this.state.password,
+        }
+        usersRef.on('value', function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                var childData = childSnapshot.val();
+                if (item.user === childData.user && item.password === childData.password) {
+                    console.log("Hello World!");
+                    found = true;
+                }
+            });
+            if (found === true) {
+                console.log("What's up?");
+                self.props.history.push('/home');
+            }
         });
-        const body = await response.text();
-        this.setState({ responseToPost: body });
     }
-    
+
     createAccount = () => {
         this.props.history.push("/create");
     };
@@ -104,7 +121,7 @@ class IntroPage extends React.Component {
         }
         usersRef.on('value', function(snapshot) {
             snapshot.forEach(function(childSnapshot) {
-                var childData = childSnapshot.val(); 
+                var childData = childSnapshot.val();
                 if(item.user === childData.user && item.password === childData.password) {
                     console.log("Hello World!");
                     found = true;

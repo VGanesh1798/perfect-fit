@@ -11,6 +11,7 @@ class CreateAccount extends React.Component {
       username: null,
       password: null,
       email: null,
+      users: []
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,8 +23,9 @@ class CreateAccount extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const itemsRef = firebase.database().ref('users');
-    const item = {
+    let found = false;
+    var usersRef = firebase.database().ref('users');
+    var item = {
       user: this.state.username,
       password: this.state.password,
       email: this.state.email,
@@ -44,7 +46,7 @@ class CreateAccount extends React.Component {
         password: "",
         email: "",
       });
-      this.props.history.push("/home");
+      this.props.history.push("/");
     }
   }
 
@@ -70,7 +72,6 @@ class CreateAccount extends React.Component {
         });
       }
     });
-    this.props.history.push("/home");
   }
 
   cancel = () => {
