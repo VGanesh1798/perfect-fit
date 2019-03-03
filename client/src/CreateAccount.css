@@ -11,3 +11,9 @@
     color: white;
     font-weight: bold;
 }
+
+.list {
+  color: black;
+  align-items: center;
+  font-size: 2px;
+}
