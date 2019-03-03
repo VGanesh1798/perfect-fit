@@ -23,6 +23,7 @@ class CreateAccount extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let found = false;
+    var self = this;
     var usersRef = firebase.database().ref('users');
     var item = {
       user: this.state.username,
@@ -36,17 +37,18 @@ class CreateAccount extends React.Component {
           console.log("Looks like you already exist!")
           found = true;
         }
-      })
-    })
-    if(found !== true) {
-      usersRef.push(item);
-      this.setState({
-        username: "",
-        password: "",
-        email: "",
       });
-      this.props.history.push("/");
-    }
+      if(found !== true) {
+        usersRef.push(item);
+        this.setState({
+          username: "",
+          password: "",
+          email: "",
+        });
+        self.props.history.push("/");
+      }
+    });
+  
   }
 
   render() {
