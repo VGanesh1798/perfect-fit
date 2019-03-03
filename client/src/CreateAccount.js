@@ -10,6 +10,7 @@ class CreateAccount extends React.Component {
       username: null,
       password: null,
       email: null,
+      users: []
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,19 +22,43 @@ class CreateAccount extends React.Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    const itemsRef = firebase.database().ref('users');
+    const usersRef = firebase.database().ref('users');
     const item = {
       user: this.state.username,
       password: this.state.password,
       email: this.state.email,
-    }  
-    itemsRef.push(item);
+    }
+    usersRef.push(item);
     this.setState({
       username: "",
       password: "",
       email: "",
     });
     this.props.history.push("/home");
+  }
+
+  componentDidMount() {
+    const usersRef = firebase.database().ref('users');
+    usersRef.child('user').on('value', function(groupSnap) {
+      groupSnap.forEach(function(snap) {
+        console.log(snap.user() + ' has ' + snap.val().password);
+      });
+    });
+    usersRef.on('value', (snapshot) => {
+      let users = snapshot.val;
+      let newState = [];
+      for(let item in users) {
+        newState.push({ 
+          id: item,
+          username: users[item].username,
+          password: users[item].password,
+          email: users[item].email,
+        });
+      this.setState({
+        users: newState
+      });
+      }
+    });
   }
 
   render() {
