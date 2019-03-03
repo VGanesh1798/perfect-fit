@@ -56,7 +56,7 @@ class FoodPage extends React.Component {
     }
 }
 
-window.onload=function(){
+function bt(){
 		 var oe1=document.getElementById("e1");
          var ob1=document.getElementById("b1");
          var ob2=document.getElementById("b2");
@@ -67,7 +67,6 @@ window.onload=function(){
          var num = 0; 
          ob1.onclick = function(){
              num+=124;
-      
          }
          ob2.onclick = function(){
              num+=335;
@@ -86,10 +85,11 @@ window.onload=function(){
 		 ob6.onclick = function(){
              num+=150;  
          }
-		 oe1.onclick = function(){
-             window.alert(num);
-           
-         }
-     }
+		oe1.onclick=function(){
+			alert(num);
+		}
+    
+   }
+
 
 export default FoodPage;
