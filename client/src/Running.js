@@ -1,12 +1,13 @@
 import React from 'react';
-import './FrontPage.css'
-import './Running.css'
+
+import './classNames.css'
 
 class Running extends React.Component {
   constructor(props) {
     super(props);
     this.calorieCalc = this.calorieCalc.bind(this);
   }
+  
   render() {
     return (
       <body>

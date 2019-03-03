@@ -6,7 +6,7 @@
 }
 
 .button {
-    width: 40%;
+    width: 100%;
     font-size: 300%;
     background: black;
     color: orange;
@@ -19,7 +19,7 @@
 }
 
 .inputs input {
-    width: 40%;
+    width: 100%;
     font-size: 300%;
     display: table;
     background: black;
