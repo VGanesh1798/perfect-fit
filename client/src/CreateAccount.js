@@ -26,15 +26,9 @@ class CreateAccount extends React.Component {
     const item = {
       user: this.state.username,
       password: this.state.password,
-<<<<<<< HEAD
       email: this.state.email,
     }
     usersRef.push(item);
-=======
-      email: this.state.email
-    }  
-    itemsRef.push(item);
->>>>>>> 4e6f622d38f0bab3f383dd25231927c8ee1a6c4a
     this.setState({
       username: "",
       password: "",
