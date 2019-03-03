@@ -26,13 +26,49 @@ class CreateAccount extends React.Component {
     const item = {
       user: this.state.username,
       password: this.state.password,
-      email: this.state.email
+      email: this.state.email,
     }
-    itemsRef.push(item);
-    this.setState({
-      username: "",
-      password: "",
-      email: "",
+    usersRef.on('value', function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+        var childData = childSnapshot.val();
+        if (item.user === childData.user || item.email === childData.email) {
+          console.log("Looks like you already exist!")
+          found = true;
+        }
+      })
+    })
+    if (found !== true) {
+      usersRef.push(item);
+      this.setState({
+        username: "",
+        password: "",
+        email: "",
+      });
+      this.props.history.push("/home");
+    }
+  }
+
+  componentDidMount() {
+    const usersRef = firebase.database().ref('users');
+    usersRef.child('user').on('value', function (groupSnap) {
+      groupSnap.forEach(function (snap) {
+        console.log(snap.user() + ' has ' + snap.val().password);
+      });
+    });
+    usersRef.on('value', (snapshot) => {
+      let users = snapshot.val;
+      let newState = [];
+      for (let item in users) {
+        newState.push({
+          id: item,
+          username: users[item].username,
+          password: users[item].password,
+          email: users[item].email,
+        });
+        this.setState({
+          users: newState
+        });
+      }
     });
     this.props.history.push("/home");
   }
@@ -43,39 +79,39 @@ class CreateAccount extends React.Component {
 
   render() {
     return (<div>
-        <header className="header">
-          Perfect Fit
+      <header className="header">
+        Perfect Fit
         </header>
-        <body>
-          <form className="inputs" onSubmit={this.handleSubmit}>
-            <input
-              type='text'
-              name="username"
-              placeholder="Username"
-              value={this.state.username}
-              onChange={this.handleChange}
-              required />
-            <input
-              type='password'
-              name="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.handleChange}
-              required />
-            <input
-              type='text'
-              name="email"
-              placeholder="Email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              required />
-            <button className="button">Create Account</button>
-          </form>
-          <button className="button" onClick={this.cancel}>
-            Cancel
+      <body>
+        <form className="inputs" onSubmit={this.handleSubmit}>
+          <input
+            type='text'
+            name="username"
+            placeholder="Username"
+            value={this.state.username}
+            onChange={this.handleChange}
+            required />
+          <input
+            type='password'
+            name="password"
+            placeholder="Password"
+            value={this.state.password}
+            onChange={this.handleChange}
+            required />
+          <input
+            type='text'
+            name="email"
+            placeholder="Email"
+            value={this.state.email}
+            onChange={this.handleChange}
+            required />
+          <button className="button">Create Account</button>
+        </form>
+        <button className="button" onClick={this.cancel}>
+          Cancel
           </button>
-        </body>
-      </div>);
+      </body>
+    </div>);
   }
 }
 export default CreateAccount;
@@ -95,6 +131,7 @@ class CreateAccount extends React.Component {
       username: null,
       password: null,
       email: null,
+      users: []
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -106,10 +143,12 @@ class CreateAccount extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const itemsRef = firebase.database().ref('users');
-    const item = {
+    let found = false;
+    var usersRef = firebase.database().ref('users');
+    var item = {
       user: this.state.username,
       password: this.state.password,
+<<<<<<< HEAD
       email: this.state.email
     }
     itemsRef.push(item);
@@ -117,8 +156,52 @@ class CreateAccount extends React.Component {
       username: "",
       password: "",
       email: "",
+=======
+      email: this.state.email,
+    }
+    usersRef.on('value', function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        if(item.user === childData.user || item.email === childData.email) {
+          console.log("Looks like you already exist!")
+          found = true;
+        }
+      })
+    })
+    if(found !== true) {
+      usersRef.push(item);
+      this.setState({
+        username: "",
+        password: "",
+        email: "",
+      });
+      this.props.history.push("/home");
+    }
+  }
+
+  componentDidMount() {
+    const usersRef = firebase.database().ref('users');
+    usersRef.child('user').on('value', function(groupSnap) {
+      groupSnap.forEach(function(snap) {
+        console.log(snap.user() + ' has ' + snap.val().password);
+      });
     });
-    this.props.history.push("/home");
+    usersRef.on('value', (snapshot) => {
+      let users = snapshot.val;
+      let newState = [];
+      for(let item in users) {
+        newState.push({
+          id: item,
+          username: users[item].username,
+          password: users[item].password,
+          email: users[item].email,
+        });
+      this.setState({
+        users: newState
+      });
+      }
+>>>>>>> b49cf01f2332f35aab99e4a4441c048854d010f9
+    });
   }
 
   render() {
