@@ -1,0 +1,45 @@
+.header {
+    text-align: center;
+    font-size: 300%;
+    background: black;
+    color: orange;
+}
+
+.button {
+    width: 40%;
+    font-size: 300%;
+    background: black;
+    color: orange;
+    border: none;
+}
+
+.button:hover {
+  background-color: orange;
+  color: black;
+}
+
+.inputs input {
+    width: 40%;
+    font-size: 300%;
+    display: table;
+    background: black;
+    color: orange;
+    border: none;
+}
+
+.row div {
+  float:left;
+}
+
+.column button {
+  background-color: black;
+  color: orange;
+  display: block;
+  border: none;
+  padding: 2px;
+  padding-bottom: 1px;
+}
+
+.column button:hover {
+  background-color: orange;
+}

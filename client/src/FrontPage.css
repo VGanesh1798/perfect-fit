@@ -1,3 +1,16 @@
+.options button {
+    background: black;
+    border: none;
+    color: orange;
+    display: block;
+    width: 30%;
+    font-size: 50px;
+    text-align: left;
+}
+
+
+
+/*
 .FrontPage {
     text-align: center;
 }
@@ -98,3 +111,4 @@
         transform: rotate(360deg);
     }
 }
+*/

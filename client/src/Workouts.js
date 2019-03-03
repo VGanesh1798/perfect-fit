@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import firebase from './firebase.js';
 
 import basketball from './images/basketball.png';
-import football from './images/football.png';
+import running from './images/running.png';
 import baseball from './images/baseball.png';
 import bowling from './images/bowling.png';
 import soccer from './images/soccer.png';
@@ -11,26 +10,13 @@ import tennis from './images/tennis.png';
 import golf from './images/golf.png';
 import pool from './images/pool.png';
 
-class SportsPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { sport: null }
-    this.editSport = this.editSport.bind(this);
-  }
-
-  editSport = (event) => {
-    alert("u edit sport bruh");
-    this.setState({ [event.target.name]: event.target.value })
-    event.preventDefault();
-    const itemsRef = firebase.database().ref('users');
-    const item = { sport: this.state.sport }
-    itemsRef.push(item);
-    this.setState({ sport: "" });
+class WorkoutPage extends Component {
+  goBackClick = () => {
     this.props.history.push("/home");
   };
 
-  handleCancelClick = () => {
-    this.props.history.push("/home");
+  running = () => {
+    this.props.history.push("/running");
   };
 
   render() {
@@ -38,12 +24,12 @@ class SportsPage extends Component {
       <header className="header">
         Perfect Fit
       </header>
-      <button className="button" onClick={this.handleCancelClick}>cancel</button>
       <body>
+        <button className="button" onClick={this.goBackClick}>Go back</button>
         <div className="row">
           <div className="column">
-            <button onClick={this.editSport}>
-              <img src={football} alt="Football" width="200" height="200" />
+            <button onClick={this.running}>
+              <img src={running} alt="Running" width="200" height="200" />
             </button>
             <button><img src={soccer} alt="Soccer" width="200" height="200" /></button>
             <button><img src={tennis} alt="Tennis" width="200" height="200" /></button>
@@ -61,4 +47,4 @@ class SportsPage extends Component {
   }
 }
 
-export default SportsPage;
+export default WorkoutPage;
