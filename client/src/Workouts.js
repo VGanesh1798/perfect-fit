@@ -22,7 +22,7 @@ class WorkoutPage extends Component {
   render() {
     return (<div>
       <header className="header">
-        Perfect Fit
+        Workouts
       </header>
       <body>
         <button className="button" onClick={this.goBackClick}>Go back</button>

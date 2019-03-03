@@ -8,6 +8,7 @@ import workout from './images/workout.png';
 import contact from './images/contact.png';
 import logout from './images/logout.png';
 import sport from './images/sport.png';
+import bullet from './images/bullet.png';
 
 class FrontPage extends React.Component {
     handleLogout = () => {
@@ -37,19 +38,19 @@ class FrontPage extends React.Component {
             </header>
             <div className="options">
                 <button onClick={this.handleLogout}>
-                    <img src={logout} height="50px" />  Logout
+                    <img src={bullet} height="50px" />  Logout
                 </button>
                 <button onClick={this.handleCalorieCounter}>
-                    <img src={calorie} height="50px" />  Calorie Counter
+                    <img src={bullet} height="50px" />  Calorie Counter
                 </button>
                 <button onClick={this.handleWorkouts}>
-                    <img src={workout} height="50px" />  Workouts
+                    <img src={bullet} height="50px" />  Workouts
                 </button>
                 <button onClick={this.handleEditSport}>
-                    <img src={sport} height="50px" />  Edit Sport
+                    <img src={bullet} height="50px" />  Sports
                 </button>
                 <button onClick={this.handleContactUs}>
-                    <img src={contact} height="50px" />  Contact us
+                    <img src={bullet} height="50px" />  Contact us
                 </button>
             </div>
         </div>)

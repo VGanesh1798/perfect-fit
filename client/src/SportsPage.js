@@ -36,24 +36,36 @@ class SportsPage extends Component {
   render() {
     return (<div>
       <header className="header">
-        Perfect Fit
+        Sports
       </header>
       <button className="button" onClick={this.handleCancelClick}>cancel</button>
       <body>
         <div className="row">
           <div className="column">
             <button onClick={this.editSport}>
-              <img src={football} alt="Football" width="200" height="200" />
+              <img className="image" src={football} alt="Football" height="200" width="200" />
             </button>
-            <button><img src={soccer} alt="Soccer" width="200" height="200" /></button>
-            <button><img src={tennis} alt="Tennis" width="200" height="200" /></button>
-            <button><img src={bowling} alt="Bowling" width="200" height="200" /></button>
-          </div>
-          <div className="column">
-            <button><img src={basketball} alt="Basketball" width="200" height="200" /></button>
-            <button><img src={baseball} alt="Baseball" width="200" height="200" /></button>
-            <button><img src={golf} alt="Golf" width="200" height="200" /></button>
-            <button><img src={pool} alt="Pool" width="200" height="200" /></button>
+            <button>
+              <img className="image" src={soccer} alt="Soccer" height="200" width="200" />
+            </button>
+            <button>
+              <img className="image" src={tennis} alt="Tennis" height="200" width="200" />
+            </button>
+            <button>
+              <img className="image" src={bowling} alt="Bowling" height="200" width="200" />
+            </button>
+            <button>
+              <img className="image" src={basketball} alt="Basketball" height="200" width="200" />
+            </button>
+            <button>
+              <img className="image" src={baseball} alt="Baseball" height="200" width="200" />
+            </button>
+            <button>
+              <img className="image" src={golf} alt="Golf" height="200" width="200" />
+            </button>
+            <button>
+              <img className="image" src={pool} alt="Pool" height="200" width="200" />
+            </button>
           </div>
         </div>
       </body>

@@ -2,19 +2,21 @@
     text-align: center;
     font-size: 300%;
     background: black;
-    color: orange;
+    color: rgb(190, 0, 238);
+    font-family: "Times New Roman"
 }
 
 .button {
     width: 100%;
     font-size: 300%;
     background: black;
-    color: orange;
+    color: gray;
     border: none;
+    font-family: "Times New Roman"
 }
 
 .button:hover {
-  background-color: orange;
+  background-color: gray;
   color: black;
 }
 
@@ -23,23 +25,43 @@
     font-size: 300%;
     display: table;
     background: black;
-    color: orange;
+    color: white;
     border: none;
+    font-family: "Times New Roman"
 }
 
 .row div {
   float:left;
+  width: 100%;
+  height: auto;
 }
 
 .column button {
   background-color: black;
-  color: orange;
   display: block;
   border: none;
-  padding: 2px;
-  padding-bottom: 1px;
+  padding: 0%;
+  width: 100%;
+  height: auto;
+}
+
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .column button:hover {
-  background-color: orange;
+  background-color: gray;
+}
+
+.options button {
+  background: black;
+  border: none;
+  color: white;
+  display: block;
+  width: 100%;
+  font-size: 50px;
+  text-align: left;
+  font-family: "Times New Roman"
 }

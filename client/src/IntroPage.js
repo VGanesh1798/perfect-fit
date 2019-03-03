@@ -74,7 +74,7 @@ class IntroPage extends React.Component {
                     <button className="button">Login</button>
                 </form>
                 <button className="button" onClick={this.createAccount}>
-                    Create an account
+                    Create Account
                 </button>
             </body>
         </div>)
