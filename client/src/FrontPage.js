@@ -40,9 +40,10 @@ class FrontPage extends React.Component {
                     <h1>Welcome to Perfect-Fit</h1>
                 </div>
                 <div className="Link-bar">
-                    <a href="/">Home</a>
+                    <a href="/home">Home</a>
                     <a href="/food">Calorie Counter</a>
                     <a href="/sports">Sports</a>
+                    <a href="/workout">Workouts</a>
                 </div>
                 <div className="Content side">
                     <p>
